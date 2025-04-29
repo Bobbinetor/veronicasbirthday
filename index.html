@@ -529,86 +529,85 @@
 <body>
     <div class="container">
         <div class="ticket-header">
-            <h1>Super Lucky</h1>
-            <p class="tagline">Your Dreams Await!</p>
+            <h1>Veronica's Birthday</h1>
+            <p class="tagline">L'unico gratta e vinci, dove sicuramente vincerai qualcosa</p>
         </div>
         
         <div class="ticket-body">
             <div class="game-instructions">
-                <h3>How to Play</h3>
-                <p>1. Scratch to reveal the WINNING NUMBERS</p>
-                <p>2. Scratch to reveal YOUR NUMBERS and prizes</p>
-                <p>3. Match YOUR NUMBERS to WINNING NUMBERS to win!</p>
-                <p>4. Scratch the PRIZE area to see how much you've won</p>
+                <h3>Come Giocare</h3>
+                <p>1. Gratta per mostrare i numeri vincenti</p>
+                <p>2. Gratta e mostra i numeri e i corrispettivi premi</p>
+                <p>3. Gratta il premio finale</p>
             </div>
             
             <div class="scratch-areas">
                 <div class="scratch-section">
-                    <div class="section-title">Winning Numbers</div>
+                    <div class="section-title">Numeri Vincenti</div>
                     <div class="scratch-container winning-numbers-container">
                         <div class="content-area">
                             <div class="winning-numbers-area">
                                 <div class="winning-number">7</div>
-                                <div class="winning-number">21</div>
-                                <div class="winning-number">44</div>
-                                <div class="winning-number">12</div>
+                                <div class="winning-number">10</div>
+                                <div class="winning-number">13</div>
+                                <div class="winning-number">16</div>
                             </div>
                         </div>
-                        <div class="scratch-helper">Scratch Here!</div>
+                        <div class="scratch-helper">Gratta qui!</div>
                         <canvas id="winning-numbers-canvas"></canvas>
                     </div>
                     <div class="scratch-percentage" id="winning-scratch-percentage">Scratched: 0%</div>
                 </div>
                 
                 <div class="scratch-section">
-                    <div class="section-title">Your Numbers</div>
+                    <div class="section-title">I tuoi numeri</div>
                     <div class="scratch-container your-numbers-container">
                         <div class="content-area">
                             <div class="your-numbers-grid">
                                 <div class="number-cell" data-number="5">
                                     <div class="number">5</div>
-                                    <div class="prize">Gianni</div>
+                                    <div class="prize">Gita a Cavallo</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                                 <div class="number-cell" data-number="12">
                                     <div class="number">12</div>
-                                    <div class="prize">€25</div>
+                                    <div class="prize">Ristorante Stellato</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                                 <div class="number-cell" data-number="32">
                                     <div class="number">32</div>
-                                    <div class="prize">€10</div>
+                                    <div class="prize">Un Viaggio a New York</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                                 <div class="number-cell" data-number="44">
                                     <div class="number">44</div>
-                                    <div class="prize">€100</div>
+                                    <div class="prize">Una Borsa Firmata</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                                 <div class="number-cell" data-number="21">
                                     <div class="number">21</div>
-                                    <div class="prize">€50</div>
+                                    <div class="prize">Un coccodrillo Peluche</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                                 <div class="number-cell" data-number="7">
                                     <div class="number">7</div>
-                                    <div class="prize" id="main-prize-value">€10,000</div>
+                                    <div class="prize" id="main-prize-value">Una Scatola Di Cioccolatini</div>
                                     <div class="win-marker">✓</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="scratch-helper">Scratch Here!</div>
+                        <div class="scratch-helper">Premio Finale</div>
                         <canvas id="your-numbers-canvas"></canvas>
                     </div>
                     <div class="scratch-percentage" id="your-scratch-percentage">Scratched: 0%</div>
                 </div>
                 
                 <div class="scratch-section">
-                    <div class="section-title">Final Prize</div>
+                    <div class="section-title">Premio Finale</div>
                     <div class="scratch-container prize-container">
                         <div class="content-area">
                             <div class="final-prize-area">
-                                <div class="prize-text" id="final-prize-text">€10,000</div>
+                                <div class="prize-text" id="final-prize-text"></div>
                                 <div class="prize-subtext">Ti amo tanto!</div>
                             </div>
                         </div>
@@ -620,13 +619,13 @@
             </div>
             
             <div class="controls">
-                <button class="button reveal-all-button" id="reveal-all-button">Reveal All</button>
-                <button class="button reset-button" id="reset-button">New Ticket</button>
+                <button class="button reveal-all-button" id="reveal-all-button">Mostra Tutto</button>
+                <button class="button reset-button" id="reset-button">Nuovo Biglietto</button>
             </div>
             
             <div class="barcode-section">
                 <div class="barcode"></div>
-                <div class="validation-code" id="validation-code">SL-4921-3677-GHJK</div>
+                <div class="validation-code" id="validation-code">SL-4921-3677-53550</div>
             </div>
             
             <div class="ticket-decoration decoration-left"></div>
@@ -642,7 +641,7 @@
         <div class="message-content">
             <div class="message-title">Congratulazioni!</div>
             <div class="message-body" id="special-message-text">
-                Hai vinto il premio speciale! Ti amo tanto e volevo farti una sorpresa.
+                Un po' di tempo per noi stessi!
             </div>
             <button class="close-message" id="close-message">❤️ Ti amo ❤️</button>
         </div>
@@ -652,16 +651,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Configuration options - EDIT PRIZE AND MESSAGE HERE
             const config = {
-                mainPrizeValue: "€10,000", // Change this for the main prize amount
-                finalPrizeText: "€10,000", // Change this for the final prize reveal
+                mainPrizeValue: "Hai vinto una scatola di Cioccolatini", // Change this for the main prize amount
+                finalPrizeText: "Bolsena, ti dice qualcosa?", // Change this for the final prize reveal
                 specialMessage: "Hai vinto il premio speciale! Ti amo tanto e volevo farti una sorpresa.", // Custom message
                 scratchColor: "#8a8a8a",
                 revealThreshold: 70,
                 brushSize: 20
             };
             
-            // Set the prize values
-            document.getElementById('main-prize-value').textContent = config.mainPrizeValue;
+            // Set the prize values - Make sure this runs at page load
+            const mainPrizeElement = document.getElementById('main-prize-value');
+            if (mainPrizeElement) {
+                mainPrizeElement.textContent = config.mainPrizeValue;
+            }
             document.getElementById('final-prize-text').textContent = config.finalPrizeText;
             document.getElementById('special-message-text').textContent = config.specialMessage;
             
@@ -887,7 +889,7 @@
             
             // Check for matching numbers between winning numbers and your numbers
             function checkForMatches() {
-                const winningNumbers = [7, 21, 44, 12]; // Must match the HTML numbers
+                const winningNumbers = [7]; // Only 7 is the winning number
                 const yourNumberCells = document.querySelectorAll('.number-cell');
                 
                 yourNumberCells.forEach(cell => {
